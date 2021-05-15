@@ -17,8 +17,12 @@ class StudentController extends Controller
         $student->file_path=$req->file('file')->store('students');
         $student->save();
         return $student;
-
-
     }
+
+   function list()
+   {
+       return student::all();
+   }
+
 
 }
