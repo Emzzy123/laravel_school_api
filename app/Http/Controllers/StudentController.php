@@ -23,6 +23,17 @@ class StudentController extends Controller
    {
        return student::all();
    }
-
+   
+   function delete($id)
+   {
+       $result = Student::where('id',$id)->delete();
+       if($result)
+       {
+           return ['result'=>'Student has been deleted from the school database!!!'];
+       }
+       else{
+        return ['result'=>'Student doesnt exist,Please try again!!!'];
+       }
+   }
 
 }
