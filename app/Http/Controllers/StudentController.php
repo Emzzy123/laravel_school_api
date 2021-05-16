@@ -35,5 +35,8 @@ class StudentController extends Controller
         return ['result'=>'Student doesnt exist,Please try again!!!'];
        }
    }
+    function  getStudent($id){
+        return Student::find($id);
+    }
 
 }
