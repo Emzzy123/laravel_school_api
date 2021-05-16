@@ -38,5 +38,21 @@ class StudentController extends Controller
     function  getStudent($id){
         return Student::find($id);
     }
+    
+    function updateStudent(Request $req, $id) {
+          
+        if (Student::where('id', $id)->exists()) {
+            $student = Student::find($id);
 
+          $student->name=$req->input('name');
+          $student->student_id=$req->input('student_id');
+          $student->course_name=$req->input('course_name');
+          $student->faculty=$req->input('faculty');
+          $student->file_path=$req->file('file')->store('students');
+          $student->save();
+
+        return $student;
+
+      }
+      }
 }
